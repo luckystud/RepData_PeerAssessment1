@@ -106,13 +106,17 @@ imputed_mean_per_day <- imputed_act_df %>%
     tbl_df() %>%
     group_by(date) %>%
     summarize(all_steps = sum(imputed_steps))
-mean_per_day <- mean(imputed_mean_per_day$all_steps)
-mean_per_day
+imp_mean_per_day <- mean(imputed_mean_per_day$all_steps)
+imputed_median_per_day <- median(imputed_mean_per_day$all_steps)
+p <- ggplot(imputed_mean_per_day, aes(date, all_steps)) + geom_histogram(stat="identity")
+print(p)
 ```
 
-```
-## [1] 10766.19
-```
+![](PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
+
+The average number of steps per day is 1.0766189\times 10^{4} and the median of the same is 1.0766189\times 10^{4}
+
+The interesting part of this result is when the NA values are replaced with the average number of steps per interval, the mean value is unchanged, but the median value is now equal to the mean.
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
