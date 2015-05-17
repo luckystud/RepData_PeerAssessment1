@@ -116,7 +116,7 @@ print(p)
 
 The average number of steps per day is 1.0766189\times 10^{4} and the median of the same is 1.0766189\times 10^{4}
 
-The interesting part of this result is when the NA values are replaced with the average number of steps per interval, the mean value is unchanged, but the median value is now equal to the mean.
+The interesting part of this result is when the NA values are replaced with the average number of steps per interval, the mean value is unchanged, but the median value is now equal to the mean.  To see an example in the plot of imputed data, look at the leftmost bar of the histogram and compare it to the histogram above.  This graph shows a bar of data as opposed to an empty slot in the previous plot.
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
