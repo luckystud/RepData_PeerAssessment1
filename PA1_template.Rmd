@@ -82,10 +82,9 @@ daytype_act_df <- imputed_act_df %>%
     tbl_df() %>%
     mutate(day_type = ifelse(weekdays(date) == "Sunday" | weekdays(date) == "Saturday", "weekend", "weekday")) %>%
     group_by(interval, day_type) %>%
-    summarise(all_steps = sum(imputed_steps))
+    summarise(all_steps = mean(imputed_steps))
 par(mfrow=c(2,1))
-weekend_ts = ts(daytype_act_df$all_steps[daytype_act_df$day_type=="weekend"])
-weekday_ts = ts(daytype_act_df$all_steps[daytype_act_df$day_type=="weekday"])
-plot.ts(weekend_ts)
-plot.ts(weekday_ts)
+sp <- ggplot(daytype_act_df, aes(interval, all_steps)) + geom_line()
+sp <- sp + facet_grid(day_type ~ .)
+print(sp)
 ```
